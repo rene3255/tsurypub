@@ -1,1 +1,1 @@
-web: gunicorn tsurypub.wsgi --log-file -
+web: gunicorn tsurypub.wsgi

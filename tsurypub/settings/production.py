@@ -1,11 +1,12 @@
 from .base import *
-
+import dj_database_url
 from pathlib import Path
 import environ
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+print("BASE_DIR: %s" % BASE_DIR)
 env = environ.Env()
 environ.Env.read_env()
 
@@ -35,6 +36,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,14 +70,8 @@ WSGI_APPLICATION = 'tsurypub.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': str(os.environ.get('DB_NAME')),
-        'USER': str(os.environ.get('DB_USER')),
-        'PASSWORD': str(os.environ.get('DB_PASSWORD')),
-        'HOST':str(os.environ.get('DB_HOST')),
-        'PORT':os.environ.get('DB_PORT'),
-    }
+      'default': dj_database_url.config()
+        
 }
 
 

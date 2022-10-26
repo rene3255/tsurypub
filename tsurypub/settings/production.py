@@ -17,7 +17,7 @@ environ.Env.read_env()
 SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = env.bool('DEBUGG', default=False)
 
 ALLOWED_HOSTS = ["tsurypub.herokuapp.com"] 
 
@@ -70,9 +70,9 @@ WSGI_APPLICATION = 'tsurypub.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-      'default': dj_database_url.config()
-        
-}
+     'default': dj_database_url.config()
+    }
+
 
 
 # Password validation

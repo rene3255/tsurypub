@@ -1,0 +1,6 @@
+-r base.txt
+
+Pillow==9.2.0
+psycopg2==2.9.4
+psycopg2-binary==2.9.4
+sqlparse==0.4.3

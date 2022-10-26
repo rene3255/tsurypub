@@ -51,17 +51,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'tsurypub.wsgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': str(os.environ.get('DB_NAME')),
-        'USER': str(os.environ.get('DB_USER')),
-        'PASSWORD': str(os.environ.get('DB_PASSWORD')),
-        'HOST':str(os.environ.get('DB_HOST')),
-        'PORT':os.environ.get('DB_PORT'),
-    }
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 

@@ -16,93 +16,95 @@ environ.Env.read_env()
 SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUGG', default=True)
+DEBUG = env.bool('DEBUGG', default=False)
+print("DEBUG IS : %s" % DEBUG)
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"] 
+if DEBUG is True:
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1"] 
 
 
-# Application definition
+    # Application definition
 
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [os.path.join(BASE_DIR,'templates')],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ],
+            },
         },
-    },
-]
+    ]
 
-WSGI_APPLICATION = 'tsurypub.wsgi.application'
+    WSGI_APPLICATION = 'tsurypub.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+    # Database
+    # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': str(os.environ.get('DB_NAME')),
-        'USER': str(os.environ.get('DB_USER')),
-        'PASSWORD': str(os.environ.get('DB_PASSWORD')),
-        'HOST':str(os.environ.get('DB_HOST')),
-        'PORT':os.environ.get('DB_PORT'),
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': str(os.environ.get('DB_NAME')),
+            'USER': str(os.environ.get('DB_USER')),
+            'PASSWORD': str(os.environ.get('DB_PASSWORD')),
+            'HOST':str(os.environ.get('DB_HOST')),
+            'PORT':os.environ.get('DB_PORT'),
+        }
     }
-}
 
 
-# Password validation
-# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
+    # Password validation
+    # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/4.0/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_TZ = True
+    AUTH_PASSWORD_VALIDATORS = [
+        {
+            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        },
+    ]
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
+    # Internationalization
+    # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-STATICFILES_DIRS = [
-os.path.join(BASE_DIR, 'static'),
-]
+    LANGUAGE_CODE = 'en-us'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    TIME_ZONE = 'UTC'
+
+    USE_I18N = True
+
+    USE_TZ = True
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+    # Static files (CSS, JavaScript, Images)
+    # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+    STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    ]
+
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+    # Default primary key field type
+    # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+    DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

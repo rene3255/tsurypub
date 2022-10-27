@@ -19,7 +19,7 @@ SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUGG', default=False)
 
-ALLOWED_HOSTS = ["tsurypub.herokuapp.com"] 
+ALLOWED_HOSTS = ["web-production-b7cc.up.railway.app"] 
 
 
 # Application definition

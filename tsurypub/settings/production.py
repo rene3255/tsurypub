@@ -69,11 +69,20 @@ if DEBUG is True:
     # Database
     # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+    # DATABASES = {
+    #    'default': dj_database_url.config()
+    #    }
+
     DATABASES = {
-        'default': dj_database_url.config()
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': str(os.environ.get('DB_NAME')),
+            'USER': str(os.environ.get('DB_USER')),
+            'PASSWORD': str(os.environ.get('DB_PASSWORD')),
+            'HOST':str(os.environ.get('DB_HOST')),
+            'PORT':os.environ.get('DB_PORT'),
         }
-
-
+    }
 
     # Password validation
     # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

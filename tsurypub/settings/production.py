@@ -3,6 +3,7 @@ import dj_database_url
 from pathlib import Path
 import environ
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -19,7 +20,7 @@ SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUGG', default=False)
 
-ALLOWED_HOSTS = ["web-production-b7cc.up.railway.app"] 
+ALLOWED_HOSTS = ["*"] 
 
 
 # Application definition
@@ -66,23 +67,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'tsurypub.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-# DATABASES = {
-#    'default': dj_database_url.config()
-#    }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': str(os.environ.get('DB_NAME')),
-        'USER': str(os.environ.get('DB_USER')),
-        'PASSWORD': str(os.environ.get('DB_PASSWORD')),
-        'HOST':str(os.environ.get('DB_HOST')),
-        'PORT':os.environ.get('DB_PORT'),
+    'default': dj_database_url.config(
+          default=config('DATABASE_URL')
+    )
     }
-}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

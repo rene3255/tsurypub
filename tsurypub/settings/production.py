@@ -20,7 +20,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUGG', default=False)
 
-ALLOWED_HOSTS = list(config('ALLOWED_HOSTSS'))
+ALLOWED_HOSTS = config('ALLOWED_HOSTSS')
 
 
 # Application definition

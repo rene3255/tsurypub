@@ -21,7 +21,7 @@ environ.Env.read_env()
 DEBUG = config('DEBUGG')
 
 SECRET_KEY = config('SECRET_KEY')
-ALLOWED_HOSTS = config('ALLOWED_HOSTSS')
+ALLOWED_HOSTS = list(config('ALLOWED_HOSTSS'))
 
 
 # Application definition

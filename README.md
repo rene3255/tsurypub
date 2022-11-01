@@ -1,10 +1,11 @@
 * TSURYPUB - Project
 - Could you image having a web application to chat about IT soft and hard ideas?
-  - The main idea of this project is offer a way to communicate the information about my personal skills and share some ideas with programmers, hobbies or specialists into the wollowing dev tools:
+  - The main idea of this project is to offer a way to communicate the information about my personal skills and share some ideas with programmers, hobbies or specialists into the wollowing dev tools:
     - Rust
     - Ruby
     - Python
     - Bubble
+  
 
 * Brief Story
 Since I begin to scripting code in a above descripted languages, I have notice there isn't a public location (web application) to looks for specific skills of my own person. 
@@ -12,9 +13,9 @@ Since I begin to scripting code in a above descripted languages, I have notice t
 Furthermore, this app most have the ability to authenticate users to control the access and protect user's disertations, post or comments.
 On the other hand, this app will be able to contain information about skills, experience, education, hobbies of each registered user.
 
-* Milestone Authentication
+* [Milestone Authentication]
 
-In this way, I want to be capable of authenticate to protect my personal data.
+In this way, I want to be capable of authenticate me to protect my personal data.
 
 It must be validated via email to very the truthness of the users.
 

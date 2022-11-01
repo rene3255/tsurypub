@@ -1,13 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Hello Django world!</h1>
-  {{ greetings }}  
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+  <div>
+    <div class="navCon">
+      <nav class="navbar">
+        <input type="checkbox" class="navTog"> 
+        <span class="menuBar">X</span>
+        <div class="menuItems">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Contact</a>
+        </div>
+        <a href="#" class="logo">tsurypub</a>
+      </nav>
+    </div>
+    
+  </div>
+  <div class="wrapper">
+    <header id="mainHeader">Header</header>
+    <div id="leftSide">Left Side</div>
+    <div id="mainContent">  {{ greetings }}  </div>
+    <div id="rightSide">Right Side</div>
+    <footer id="mainFooter">Footer content</footer>
+{% endblock %}  

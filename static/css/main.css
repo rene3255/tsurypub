@@ -11,7 +11,7 @@ body {
   margin: 3rem 0;
 }
 
-.navabar {
+.navbar {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
 }
@@ -36,6 +36,11 @@ body {
 }
 
 .menuItems {
+  font-size: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4,auto) 1fr;
+  grid-gap: 12px;
+  align-self: center;
 
 }
 .navbar a {
@@ -43,6 +48,16 @@ body {
   text-decoration: none;
 }
 
+.navbar a:hover {
+  color: red;
+}
+.menuBar, .navTog {
+  display: none;
+}
+.logo {
+ padding: 1rem;
+ font-size: 3rem;
+}
 #mainHeader {
   grid-area: header;
 }
@@ -79,5 +94,21 @@ body {
     "footer";
     grid-template-columns: 1fr;
     grid-template-rows: 80px 1fr 1fr  1fr 100px;
+  }
+
+  .navTog:checked ~ .menuItems {
+    display: grid;
+    grid-row-start: 2;
+    grid-auto-flow: row;
+    grid-template-columns: auto;
+  }
+
+  .menuItems {
+    display: none;
+    padding-right: 0 !important;
+  }
+
+  .menuBar, .navTog {
+    display: grid;
   }
 }
